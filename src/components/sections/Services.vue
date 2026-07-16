@@ -1,15 +1,9 @@
 <script setup>
 import { Monitor, Database, Smartphone, Code2, Wrench, ShieldCheck, Cpu, ArrowUpRight } from 'lucide-vue-next'
 
+const emit = defineEmits(['selectService'])
+
 const services = [
-    {
-        id: 'support',
-        icon: Wrench,
-        title: 'Suporte Técnico', // Mudança sutil para focar na máquina
-        subtitle: 'PC_Laptop_Repair',
-        desc: 'Devolva a vida ao seu equipamento. Especialistas em PCs, Notebooks e Workstations. Resolvemos lentidão e superaquecimento com limpeza técnica, troca de pasta térmica e upgrades que aceleram seu setup.',
-        features: ['Limpeza Química & Térmica', 'Formatação Otimizada', 'Upgrade SSD/RAM', 'Diagnóstico de Hardware']
-    },
     {
         id: 'dev',
         icon: Code2,
@@ -20,6 +14,14 @@ const services = [
         highlight: true // Destaque visual
     },
     {
+        id: 'support',
+        icon: Wrench,
+        title: 'Suporte Técnico', // Mudança sutil para focar na máquina
+        subtitle: 'PC_Laptop_Repair',
+        desc: 'Devolva a vida ao seu equipamento. Especialistas em PCs, Notebooks e Workstations. Resolvemos lentidão e superaquecimento com limpeza técnica, troca de pasta térmica e upgrades que aceleram seu setup.',
+        features: ['Limpeza Química & Térmica', 'Formatação Otimizada', 'Upgrade SSD/RAM', 'Diagnóstico de Hardware']
+    },
+    {
         id: 'backup',
         icon: Database,
         title: 'Backup & Restore',
@@ -27,15 +29,6 @@ const services = [
         desc: 'Seus dados são seu maior ativo. Implementamos rotinas de backup automático e recuperação de arquivos perdidos. Segurança inegociável.',
         features: ['Backup Nuvem/Local', 'Recuperação de Dados', 'Criptografia', 'Prevenção']
         // Removi a propriedade iconSecondary que causava o bug visual
-    },
-    {
-        id: 'iphone',
-        icon: Smartphone,
-        title: 'Apple Repair',
-        subtitle: 'Hardware_Fix',
-        desc: 'Especialistas em iPhone. Troca de tela e bateria com peças premium e agilidade. Devolvemos a vida ao seu dispositivo Apple.',
-        features: ['Troca de Tela', 'Troca de Bateria', 'Limpeza Interna', 'Diagnóstico'],
-        highlight: false
     }
 ]
 </script>
@@ -70,10 +63,11 @@ const services = [
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
                 <div v-for="service in services" :key="service.id"
-                    class="group relative p-8 rounded-xl border border-white/5 bg-slate-900/50 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:bg-slate-900 hover:border-brand-gold/50 overflow-hidden"
+                    @click="emit('selectService', service.id)"
+                    class="group relative p-8 rounded-xl border border-white/5 bg-slate-900/50 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:bg-slate-900 hover:border-brand-gold/50 overflow-hidden cursor-pointer"
                     :class="{ 'ring-1 ring-brand-gold/20 shadow-[0_0_30px_rgba(197,160,89,0.1)]': service.highlight }">
 
                     <div

@@ -24,7 +24,7 @@ const contactInfo = {
 const serviceOptions = [
     { label: 'Suporte Técnico', value: 'Suporte Técnico' },
     { label: 'Desenvolvimento Web / SaaS', value: 'Desenvolvimento Web' },
-    { label: 'Apple Repair (Tela/Bateria)', value: 'Apple Repair' },
+    { label: 'Backup & Segurança de Dados', value: 'Backup & Dados' },
     { label: 'Consultoria / Outros', value: 'Outros' }
 ]
 

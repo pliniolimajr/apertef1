@@ -65,9 +65,8 @@ onUnmounted(() => {
       </a>
 
       <div class="hidden md:flex items-center gap-8">
-        <button @click="scrollTo('servicos')" class="nav-item">O Hub</button>
-        <button @click="scrollTo('dev')" class="nav-item">Dev & SaaS</button>
-        <button @click="scrollTo('iphone')" class="nav-item">Apple Repair</button>
+        <button @click="scrollTo('servicos')" class="nav-item">Serviços</button>
+        <button @click="scrollTo('metodologia')" class="nav-item">Metodologia</button>
         <button @click="scrollTo('depoimentos')" class="nav-item">Feedbacks</button>
         
         <a
@@ -103,9 +102,8 @@ onUnmounted(() => {
     >
         <div v-if="isMenuOpen" class="fixed inset-0 top-[60px] bg-slate-950 z-40 flex flex-col items-center pt-10 gap-8 md:hidden border-t border-white/10 h-[calc(100vh-60px)] overflow-y-auto">
             
-            <button @click="scrollTo('servicos')" class="mobile-link">O Hub</button>
-            <button @click="scrollTo('dev')" class="mobile-link">Dev & SaaS</button>
-            <button @click="scrollTo('iphone')" class="mobile-link">Apple Repair</button>
+            <button @click="scrollTo('servicos')" class="mobile-link">Serviços</button>
+            <button @click="scrollTo('metodologia')" class="mobile-link">Metodologia</button>
             <button @click="scrollTo('depoimentos')" class="mobile-link">Feedbacks</button>
             
             <a href="https://wa.me/5571993290895?text=Ol%C3%A1!%20Vim%20pelo%20menu%20do%20site%20e%20preciso%20de%20ajuda." class="mt-8 px-8 py-4 bg-brand-gold text-slate-950 font-bold font-mono uppercase tracking-widest rounded shadow-[0_0_20px_rgba(197,160,89,0.4)]">
