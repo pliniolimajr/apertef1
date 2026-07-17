@@ -30,7 +30,7 @@ const scrollToTop = () => {
                         </span>
                     </a>
 
-                    <p class="font-sans text-sm font-light leading-relaxed max-w-sm text-slate-500">
+                    <p class="font-sans text-sm font-light leading-relaxed max-w-sm text-slate-400">
                         O seu Hub de Tecnologia Descomplicada.
                         Do suporte técnico ao desenvolvimento de software,
                         entregamos soluções precisas para problemas complexos.
@@ -38,11 +38,13 @@ const scrollToTop = () => {
 
                     <div class="flex items-center gap-4 pt-2">
                         <a href="https://www.instagram.com/aperte.f1/" target="_blank"
+                            aria-label="Instagram da Aperte F1"
                             class="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-white hover:bg-brand-gold hover:text-slate-950 transition-all duration-300">
                             <Instagram class="w-5 h-5" />
                         </a>
                         <a href="https://wa.me/5571993290895?text=Ol%C3%A1!%20Encontrei%20voc%C3%AAs%20pelo%20site."
                             target="_blank"
+                            aria-label="Falar conosco no WhatsApp"
                             class="w-10 h-10 rounded bg-white/5 flex items-center justify-center text-white hover:bg-brand-gold hover:text-slate-950 transition-all duration-300">
                             <MessageCircle class="w-5 h-5" />
                         </a>
@@ -70,7 +72,7 @@ const scrollToTop = () => {
                     <ul class="space-y-4 text-sm font-sans font-light">
                         <li class="flex items-start gap-3">
                             <MapPin class="w-4 h-4 text-brand-gold mt-1 shrink-0" />
-                            <span>Salvador - Bahia<br><span class="text-xs text-slate-600">Atendimento Remoto &
+                            <span>Salvador - Bahia<br><span class="text-xs text-slate-400">Atendimento Remoto &
                                     Presencial</span></span>
                         </li>
                         <li class="flex items-center gap-3">
@@ -87,13 +89,13 @@ const scrollToTop = () => {
         <div class="border-t border-white/5 bg-[#01030d]">
             <div class="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
 
-                <div class="font-mono text-[10px] text-slate-600 uppercase tracking-wider">
+                <div class="font-mono text-[10px] text-slate-500 uppercase tracking-wider">
                     © {{ currentYear }} Aperte F1. All Systems Operational.
                 </div>
 
                 <div class="flex items-center gap-6">
                     <button @click="scrollToTop"
-                        class="group flex items-center gap-2 font-mono text-[10px] uppercase text-slate-500 hover:text-brand-gold transition-colors">
+                        class="group flex items-center gap-2 font-mono text-[10px] uppercase text-slate-400 hover:text-brand-gold transition-colors">
                         Back to Top
                         <ArrowUp class="w-3 h-3 group-hover:-translate-y-1 transition-transform" />
                     </button>

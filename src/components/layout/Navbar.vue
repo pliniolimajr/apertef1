@@ -59,7 +59,7 @@ onUnmounted(() => {
               
               <span class="text-brand-gold group-hover:text-white transition-colors duration-300">F1</span>
           </span>
-          <span class="font-mono text-[9px] text-slate-500 uppercase tracking-[0.3em] group-hover:text-slate-300 transition-colors hidden md:block mt-1">
+          <span class="font-mono text-[9px] text-slate-400 uppercase tracking-[0.3em] group-hover:text-slate-200 transition-colors hidden md:block mt-1">
               Tecnologia Descomplicada
           </span>
       </a>
@@ -85,6 +85,7 @@ onUnmounted(() => {
       <button 
         @click="isMenuOpen = !isMenuOpen" 
         class="md:hidden p-2 text-white hover:text-brand-gold transition-colors relative z-50"
+        aria-label="Abrir Menu Mobile"
       >
         <X v-if="isMenuOpen" class="w-6 h-6" />
         <Menu v-else class="w-6 h-6" />

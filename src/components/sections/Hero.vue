@@ -67,9 +67,8 @@ import { ArrowRight, Cpu, MousePointer2 } from 'lucide-vue-next'
       </div>
     </div>
 
-    <div
-      class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce">
-      <span class="font-mono text-[10px] uppercase tracking-widest text-slate-500">Scroll</span>
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce">
+      <span class="font-mono text-[10px] uppercase tracking-widest text-slate-400">Scroll</span>
       <MousePointer2 class="w-5 h-5 text-brand-gold" />
     </div>
 

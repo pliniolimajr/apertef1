@@ -103,29 +103,29 @@ const handleSubmit = async () => {
 
                     <div class="space-y-4 pt-4 border-t border-white/5">
                         
-                        <a :href="contactInfo.whatsappLink" target="_blank" class="group flex items-center gap-4 p-4 rounded bg-slate-900/50 border border-white/5 hover:border-brand-gold/50 transition-all cursor-pointer">
+                        <a :href="contactInfo.whatsappLink" target="_blank" aria-label="WhatsApp da Aperte F1" class="group flex items-center gap-4 p-4 rounded bg-slate-900/50 border border-white/5 hover:border-brand-gold/50 transition-all cursor-pointer">
                             <div class="w-10 h-10 rounded bg-brand-gold/10 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-slate-950 transition-colors">
                                 <MessageCircle class="w-5 h-5" />
                             </div>
                             <div>
-                                <span class="block font-mono text-[10px] uppercase tracking-widest text-slate-500 mb-1">WhatsApp Direct</span>
+                                <span class="block font-mono text-[10px] uppercase tracking-widest text-slate-400 mb-1">WhatsApp Direct</span>
                                 <span class="text-white font-display text-lg">{{ contactInfo.phone }}</span>
                             </div>
                         </a>
 
-                        <a :href="contactInfo.instagramLink" target="_blank" class="group flex items-center gap-4 p-4 rounded bg-slate-900/50 border border-white/5 hover:border-brand-gold/50 transition-all cursor-pointer">
+                        <a :href="contactInfo.instagramLink" target="_blank" aria-label="Instagram da Aperte F1" class="group flex items-center gap-4 p-4 rounded bg-slate-900/50 border border-white/5 hover:border-brand-gold/50 transition-all cursor-pointer">
                             <div class="w-10 h-10 rounded bg-brand-gold/10 flex items-center justify-center text-brand-gold group-hover:bg-brand-gold group-hover:text-slate-950 transition-colors">
                                 <Instagram class="w-5 h-5" />
                             </div>
                             <div>
-                                <span class="block font-mono text-[10px] uppercase tracking-widest text-slate-500 mb-1">Portfolio & Daily</span>
+                                <span class="block font-mono text-[10px] uppercase tracking-widest text-slate-400 mb-1">Portfolio & Daily</span>
                                 <span class="text-white font-display text-lg">{{ contactInfo.instagram }}</span>
                             </div>
                         </a>
 
                         <div class="flex items-center gap-4 p-4 opacity-60">
-                            <MapPin class="w-5 h-5 text-slate-500" />
-                            <span class="text-slate-400 font-mono text-sm uppercase tracking-wide">{{ contactInfo.location }}</span>
+                            <MapPin class="w-5 h-5 text-slate-400" />
+                            <span class="text-slate-300 font-mono text-sm uppercase tracking-wide">{{ contactInfo.location }}</span>
                         </div>
 
                     </div>
@@ -137,7 +137,7 @@ const handleSubmit = async () => {
                         <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
                         <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
                         <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
-                        <span class="ml-4 font-mono text-[10px] text-slate-500">root@apertef1:~/contact-form</span>
+                        <span class="ml-4 font-mono text-[10px] text-slate-400">root@apertef1:~/contact-form</span>
                     </div>
 
                     <form @submit.prevent="handleSubmit" class="mt-8 space-y-8 relative z-10">
@@ -178,7 +178,7 @@ const handleSubmit = async () => {
                                 :class="{ 'border-brand-gold': isDropdownOpen }"
                             >
                                 <span v-if="form.service" class="text-white">{{ form.service }}</span>
-                                <span v-else class="text-slate-600 font-light">Selecione o serviço...</span>
+                                <span v-else class="text-slate-400 font-light">Selecione o serviço...</span>
                                 
                                 <ChevronDown 
                                     class="w-4 h-4 text-brand-gold transition-transform duration-300"
@@ -233,7 +233,7 @@ const handleSubmit = async () => {
                             <div class="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 z-0"></div>
                         </button>
                         
-                        <p class="text-center md:text-left font-mono text-[10px] text-slate-600">
+                        <p class="text-center md:text-left font-mono text-[10px] text-slate-400">
                             * Response time estimated: &lt; 2 hours during business cycle.
                         </p>
 

@@ -23,7 +23,7 @@ const emit = defineEmits(['close'])
                     SYSTEM_PRIVACY_POLICY.md
                 </span>
             </div>
-            <button @click="$emit('close')" class="text-slate-500 hover:text-white transition-colors">
+            <button @click="$emit('close')" class="text-slate-400 hover:text-white transition-colors">
                 <X class="w-5 h-5" />
             </button>
         </div>
@@ -32,7 +32,7 @@ const emit = defineEmits(['close'])
             
             <div class="space-y-2">
                 <h3 class="text-white font-bold text-lg">Política de Privacidade e Proteção de Dados</h3>
-                <p class="text-xs text-slate-500 font-mono">Última atualização: Janeiro de 2026</p>
+                <p class="text-xs text-slate-400 font-mono">Última atualização: Janeiro de 2026</p>
             </div>
 
             <p>
@@ -74,7 +74,7 @@ const emit = defineEmits(['close'])
             </div>
 
             <div class="border-t border-white/10 pt-4 mt-4">
-                <p class="font-mono text-xs text-slate-500">
+                <p class="font-mono text-xs text-slate-400">
                     Para exercer seus direitos ou tirar dúvidas, entre em contato:<br>
                     <span class="text-brand-gold">apertef1agora@gmail.com</span>
                 </p>

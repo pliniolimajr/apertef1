@@ -61,7 +61,7 @@ const emit = defineEmits(['openPolicy'])
                                 Confirmar
                             </button>
                             <a href="#" @click.prevent="$emit('openPolicy')"
-                                class="text-[10px] text-slate-500 hover:text-white underline decoration-slate-700 font-mono uppercase">
+                                class="text-[10px] text-slate-400 hover:text-white underline decoration-slate-700 font-mono uppercase">
                                 Ler Policy.txt
                             </a>
                         </div>

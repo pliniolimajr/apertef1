@@ -81,7 +81,7 @@ const metrics = [
                     <div v-for="metric in metrics" :key="metric.label" class="text-center md:text-right">
                         <span class="block font-display text-3xl md:text-4xl text-white font-bold mb-1">{{ metric.value
                             }}</span>
-                        <span class="font-mono text-[10px] text-slate-500 uppercase tracking-widest block">{{
+                        <span class="font-mono text-[10px] text-slate-400 uppercase tracking-widest block">{{
                             metric.label }}</span>
                     </div>
                 </div>
@@ -99,8 +99,8 @@ const metrics = [
                                     <User class="w-5 h-5" />
                                 </div>
                                 <div>
-                                    <h4 class="font-display text-white font-bold text-lg">{{ item.name }}</h4>
-                                    <p class="font-mono text-[10px] text-slate-500 uppercase tracking-widest">{{
+                                    <h3 class="font-display text-white font-bold text-lg">{{ item.name }}</h3>
+                                    <p class="font-mono text-[10px] text-slate-400 uppercase tracking-widest">{{
                                         item.role }}</p>
                                 </div>
                             </div>
@@ -131,7 +131,7 @@ const metrics = [
             </div>
 
             <div class="mt-12 text-center md:text-right">
-                <p class="font-mono text-xs text-slate-500">
+                <p class="font-mono text-xs text-slate-400">
                     * Dados extraídos de atendimentos reais. <span class="text-brand-gold font-bold">100%
                         Verificado.</span>
                 </p>
