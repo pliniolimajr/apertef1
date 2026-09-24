@@ -46,29 +46,28 @@ const emit = defineEmits(['openPolicy'])
 
                     <div class="space-y-3">
                         <div>
-                            <h4 class="font-mono text-xs font-bold text-brand-gold uppercase tracking-widest mb-1">
-                                Privacy_Protocol_Init
-                            </h4>
+                            <p class="font-mono text-xs font-bold text-brand-gold uppercase tracking-widest mb-1">
+                                Privacidade e cookies
+                            </p>
                             <p class="font-sans text-xs text-slate-300 leading-relaxed font-light">
-                                Utilizamos cookies para processar dados de navegação e otimizar a performance do
-                                sistema. Ao continuar, você autoriza esse processamento.
+                                Usamos armazenamento essencial para lembrar que este aviso foi exibido. Consulte a política para entender como tratamos seus dados.
                             </p>
                         </div>
 
                         <div class="flex items-center gap-3 pt-1">
                             <button @click="acceptCookies"
                                 class="bg-brand-gold hover:bg-white text-slate-950 px-4 py-2 rounded text-xs font-bold font-mono uppercase tracking-wider transition-colors">
-                                Confirmar
+                                Entendi
                             </button>
                             <a href="#" @click.prevent="$emit('openPolicy')"
-                                class="text-[10px] text-slate-400 hover:text-white underline decoration-slate-700 font-mono uppercase">
-                                Ler Policy.txt
+                                class="text-[10px] text-slate-300 hover:text-white underline decoration-slate-500 font-mono uppercase">
+                                Política de Privacidade
                             </a>
                         </div>
                     </div>
 
-                    <button @click="isVisible = false"
-                        class="absolute top-4 right-4 text-slate-600 hover:text-white transition-colors">
+                    <button @click="isVisible = false" aria-label="Fechar aviso de privacidade"
+                        class="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors">
                         <X class="w-4 h-4" />
                     </button>
 

@@ -1,136 +1,79 @@
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick, watch } from 'vue'
-import { Menu, X, Terminal } from 'lucide-vue-next'
-
-const isScrolled = ref(false)
-const isMenuOpen = ref(false)
-
-// Bloqueia o scroll da página quando o menu mobile está aberto
-watch(isMenuOpen, (val) => {
-  document.body.style.overflow = val ? 'hidden' : ''
-})
-
-// Monitora o scroll para mudar a cor da barra
-const checkScroll = () => {
-  isScrolled.value = window.scrollY > 20
+import { ArrowUpRight, Menu, X } from 'lucide-vue-next'
+import { nextTick, onUnmounted, ref, watch } from 'vue'
+const open = ref(false)
+const mobileMenu = ref(null)
+const links = [['Serviços', 'servicos'], ['Sobre', 'metodologia'], ['Trabalho', 'projetos'], ['Contato', 'contato']]
+const whatsapp = 'https://wa.me/5571993290895?text=Ol%C3%A1!%20Visitei%20o%20site%20da%20Aperte%20F1%20e%20gostaria%20de%20conversar.'
+function go(id) { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); open.value = false }
+function closeOutsideAction(event) {
+  if (!event.target.closest('button, a')) open.value = false
 }
-
-// Função para rolar até o topo (Logo)
-const scrollToTop = () => {
-  isMenuOpen.value = false
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  })
-}
-
-// Função de navegação suave para as seções
-const scrollTo = async (id) => {
-  isMenuOpen.value = false // Fecha o menu primeiro
-  await nextTick() // Espera o DOM atualizar
-  const el = document.getElementById(id)
-  if (el) el.scrollIntoView({ behavior: 'smooth' })
-}
-
-onMounted(() => {
-  window.addEventListener('scroll', checkScroll)
+watch(open, async (value) => {
+  document.body.style.overflow = value ? 'hidden' : ''
+  if (value) {
+    await nextTick()
+    mobileMenu.value?.querySelector('button')?.focus()
+  }
 })
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', checkScroll)
-  document.body.style.overflow = ''
-})
+onUnmounted(() => { document.body.style.overflow = '' })
 </script>
 
 <template>
-  <nav
-    class="fixed w-full z-50 transition-all duration-300 border-b"
-    :class="(isScrolled || isMenuOpen)
-      ? 'bg-slate-950 border-white/5 py-4 shadow-lg shadow-black/50'
-      : 'bg-transparent border-transparent py-6'"
-  >
-    <div class="container mx-auto px-6 flex justify-between items-center">
-
-      <a href="#" @click.prevent="scrollToTop" class="group flex flex-col justify-center relative z-50 cursor-pointer">
-          <span class="font-display font-bold text-2xl leading-none tracking-wide">
-              <span class="text-white group-hover:text-brand-gold transition-colors duration-300">APERTE</span>
-              
-              <span class="mx-1"></span>
-              
-              <span class="text-brand-gold group-hover:text-white transition-colors duration-300">F1</span>
-          </span>
-          <span class="font-mono text-[9px] text-slate-400 uppercase tracking-[0.3em] group-hover:text-slate-200 transition-colors hidden md:block mt-1">
-              Tecnologia Descomplicada
-          </span>
-      </a>
-
-      <div class="hidden md:flex items-center gap-8">
-        <button @click="scrollTo('servicos')" class="nav-item">Serviços</button>
-        <button @click="scrollTo('metodologia')" class="nav-item">Metodologia</button>
-        <button @click="scrollTo('depoimentos')" class="nav-item">Feedbacks</button>
-        
-        <a
-          href="https://wa.me/5571993290895?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20preciso%20de%20um%20atendimento%20r%C3%A1pido."
-          target="_blank"
-          class="relative px-5 py-2 group overflow-hidden rounded bg-transparent border border-brand-gold/50 text-brand-gold font-mono text-xs font-bold uppercase tracking-wider hover:text-slate-950 transition-colors"
-        >
-          <span class="absolute inset-0 w-full h-full bg-brand-gold/0 group-hover:bg-brand-gold transition-colors duration-300"></span>
-          <span class="relative flex items-center gap-2">
-            Chamado Rápido
-            <Terminal class="w-3 h-3" />
-          </span>
-        </a>
-      </div>
-
-      <button 
-        @click="isMenuOpen = !isMenuOpen" 
-        class="md:hidden p-2 text-white hover:text-brand-gold transition-colors relative z-50"
-        aria-label="Abrir Menu Mobile"
-      >
-        <X v-if="isMenuOpen" class="w-6 h-6" />
-        <Menu v-else class="w-6 h-6" />
+  <nav class="fixed inset-x-0 top-0 z-50 bg-[#020817]/95 backdrop-blur" aria-label="Navegação principal">
+    <div class="mx-auto flex h-[80px] max-w-[1600px] items-center px-5 sm:px-8">
+      <button type="button" @click="go('inicio')" class="w-64 text-left">
+        <span class="block font-display text-[26px] font-bold leading-none tracking-[-0.04em] text-white">APERTE <span class="text-[#c5a059]">F1</span></span>
       </button>
-
+      <div class="hidden flex-1 justify-center gap-9 lg:flex">
+        <button v-for="link in links" :key="link[1]" type="button" @click="go(link[1])" class="nav-link text-sm font-light tracking-wide text-slate-300">{{ link[0] }}</button>
+      </div>
+      <a :href="whatsapp" target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" data-track-location="navbar" class="group ml-auto hidden items-center gap-2 border-b border-[#c5a059] pb-1 text-[13px] font-bold text-white transition hover:text-[#c5a059] lg:flex">Iniciar conversa <ArrowUpRight class="h-4 w-4 text-[#c5a059] transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" /></a>
+      <button type="button" @click="open = !open" class="relative z-[60] ml-auto p-2 text-white transition hover:text-[#c5a059] lg:hidden" :aria-expanded="open" aria-controls="mobile-menu" :aria-label="open ? 'Fechar menu' : 'Abrir menu'"><X v-if="open" class="h-6 w-6" /><Menu v-else class="h-6 w-6" /></button>
     </div>
+  </nav>
 
-    <Transition
-      enter-active-class="transition duration-200 ease-out"
-      enter-from-class="opacity-0 -translate-y-5"
-      enter-to-class="opacity-100 translate-y-0"
-      leave-active-class="transition duration-150 ease-in"
-      leave-from-class="opacity-100 translate-y-0"
-      leave-to-class="opacity-0 -translate-y-5"
+  <Transition
+    enter-active-class="transition duration-300 ease-out"
+    enter-from-class="opacity-0 -translate-y-4"
+    enter-to-class="opacity-100 translate-y-0"
+    leave-active-class="transition duration-200 ease-in"
+    leave-from-class="opacity-100 translate-y-0"
+    leave-to-class="opacity-0 -translate-y-3"
+  >
+    <div
+      v-if="open"
+      id="mobile-menu"
+      ref="mobileMenu"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Menu principal"
+      @click="closeOutsideAction"
+      @keydown.esc="open = false"
+      class="fixed inset-x-0 bottom-0 top-[80px] z-40 flex flex-col items-center overflow-y-auto border-t border-white/10 bg-[#020817]/80 px-6 pb-10 pt-10 backdrop-blur-xl lg:hidden"
     >
-        <div v-if="isMenuOpen" class="fixed inset-0 top-[60px] bg-slate-950 z-40 flex flex-col items-center pt-10 gap-8 md:hidden border-t border-white/10 h-[calc(100vh-60px)] overflow-y-auto">
-            
-            <button @click="scrollTo('servicos')" class="mobile-link">Serviços</button>
-            <button @click="scrollTo('metodologia')" class="mobile-link">Metodologia</button>
-            <button @click="scrollTo('depoimentos')" class="mobile-link">Feedbacks</button>
-            
-            <a href="https://wa.me/5571993290895?text=Ol%C3%A1!%20Vim%20pelo%20menu%20do%20site%20e%20preciso%20de%20ajuda." class="mt-8 px-8 py-4 bg-brand-gold text-slate-950 font-bold font-mono uppercase tracking-widest rounded shadow-[0_0_20px_rgba(197,160,89,0.4)]">
-                Iniciar Atendimento
-            </a>
-
-        </div>
-    </Transition>
-  </nav> 
+      <div class="flex w-full max-w-md flex-col items-center gap-2">
+        <button
+          v-for="(link, index) in links"
+          :key="link[1]"
+          type="button"
+          @click="go(link[1])"
+          class="mobile-menu-item w-full py-4 text-center font-display text-2xl font-medium text-white transition hover:text-[#c5a059]"
+          :style="{ animationDelay: `${index * 55}ms` }"
+        >{{ link[0] }}</button>
+      </div>
+      <a :href="whatsapp" target="_blank" rel="noopener noreferrer" data-track="whatsapp_click" data-track-location="mobile_menu" class="mobile-menu-item mt-8 inline-flex w-full max-w-sm items-center justify-center gap-3 bg-[#c5a059] px-7 py-4 font-bold text-[#020817] shadow-[0_12px_35px_rgba(197,160,89,.2)] transition hover:bg-white" style="animation-delay: 240ms">Iniciar conversa <ArrowUpRight class="h-5 w-5" /></a>
+    </div>
+  </Transition>
 </template>
 
 <style scoped>
-/* Estilo dos Links Desktop (Sublinhado Animado) */
-.nav-item {
-  @apply text-sm font-sans text-slate-400 hover:text-white transition-colors relative py-1 tracking-wide;
+.mobile-menu-item { animation: menuItemIn .4s both cubic-bezier(.2,.75,.25,1); }
+@keyframes menuItemIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-.nav-item::after {
-  content: '';
-  @apply absolute bottom-0 left-0 w-0 h-[1px] bg-brand-gold transition-all duration-300;
-}
-.nav-item:hover::after {
-  @apply w-full;
-}
-
-/* Estilo dos Links Mobile (Maiores) */
-.mobile-link {
-    @apply font-display text-2xl text-white hover:text-brand-gold transition-colors;
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu-item { animation: none; }
 }
 </style>

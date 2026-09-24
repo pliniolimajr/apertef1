@@ -14,16 +14,16 @@ const emit = defineEmits(['close'])
       
       <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" @click="$emit('close')"></div>
 
-      <div class="relative w-full max-w-2xl bg-[#0f172a] border border-brand-gold/20 rounded-lg shadow-2xl shadow-brand-gold/10 flex flex-col max-h-[80vh] overflow-hidden animate-scale-in">
+      <div role="dialog" aria-modal="true" aria-labelledby="privacy-title" class="relative w-full max-w-2xl bg-[#0f172a] border border-brand-gold/20 rounded-lg shadow-2xl shadow-brand-gold/10 flex flex-col max-h-[80vh] overflow-hidden animate-scale-in">
         
         <div class="flex items-center justify-between p-4 border-b border-white/5 bg-slate-900/50">
             <div class="flex items-center gap-3">
                 <FileText class="w-4 h-4 text-brand-gold" />
                 <span class="font-mono text-xs font-bold text-slate-300 uppercase tracking-widest">
-                    SYSTEM_PRIVACY_POLICY.md
+                    Política de Privacidade
                 </span>
             </div>
-            <button @click="$emit('close')" class="text-slate-400 hover:text-white transition-colors">
+            <button @click="$emit('close')" aria-label="Fechar política de privacidade" class="text-slate-400 hover:text-white transition-colors">
                 <X class="w-5 h-5" />
             </button>
         </div>
@@ -31,7 +31,7 @@ const emit = defineEmits(['close'])
         <div class="p-6 overflow-y-auto custom-scrollbar space-y-6 font-sans text-slate-300 text-sm leading-relaxed font-light">
             
             <div class="space-y-2">
-                <h3 class="text-white font-bold text-lg">Política de Privacidade e Proteção de Dados</h3>
+                <h2 id="privacy-title" class="text-white font-bold text-lg">Política de Privacidade e Proteção de Dados</h2>
                 <p class="text-xs text-slate-400 font-mono">Última atualização: Janeiro de 2026</p>
             </div>
 
@@ -40,7 +40,7 @@ const emit = defineEmits(['close'])
             </p>
 
             <div class="space-y-2">
-                <h4 class="text-brand-gold font-bold uppercase text-xs tracking-wider">1. Dados que Coletamos</h4>
+                <h3 class="text-brand-gold font-bold uppercase text-xs tracking-wider">1. Dados que Coletamos</h3>
                 <p>Atualmente, nosso site é majoritariamente informativo. Coletamos apenas:</p>
                 <ul class="list-disc pl-5 space-y-1 text-slate-400">
                     <li><strong>Dados de Navegação (Cookies):</strong> Informações técnicas como tipo de navegador e tempo de acesso, para otimização do site.</li>
@@ -49,7 +49,7 @@ const emit = defineEmits(['close'])
             </div>
 
             <div class="space-y-2">
-                <h4 class="text-brand-gold font-bold uppercase text-xs tracking-wider">2. Como Usamos seus Dados</h4>
+                <h3 class="text-brand-gold font-bold uppercase text-xs tracking-wider">2. Como Usamos seus Dados</h3>
                 <p>Utilizamos as informações estritamente para:</p>
                 <ul class="list-disc pl-5 space-y-1 text-slate-400">
                     <li>Responder a pedidos de orçamento ou suporte técnico.</li>
@@ -59,17 +59,17 @@ const emit = defineEmits(['close'])
             </div>
 
             <div class="space-y-2">
-                <h4 class="text-brand-gold font-bold uppercase text-xs tracking-wider">3. Cookies e Tecnologias</h4>
+                <h3 class="text-brand-gold font-bold uppercase text-xs tracking-wider">3. Cookies e Tecnologias</h3>
                 <p>Usamos cookies essenciais para o funcionamento do site. Você pode gerenciar suas preferências de cookies diretamente nas configurações do seu navegador.</p>
             </div>
 
             <div class="space-y-2">
-                <h4 class="text-brand-gold font-bold uppercase text-xs tracking-wider">4. Compartilhamento</h4>
+                <h3 class="text-brand-gold font-bold uppercase text-xs tracking-wider">4. Compartilhamento</h3>
                 <p>Não vendemos nem alugamos seus dados. Compartilhamos informações apenas com prestadores de serviço essenciais para nossa operação (ex: hospedagem do site, WhatsApp/Meta), que também estão sujeitos a obrigações de sigilo.</p>
             </div>
 
             <div class="space-y-2">
-                <h4 class="text-brand-gold font-bold uppercase text-xs tracking-wider">5. Seus Direitos (LGPD)</h4>
+                <h3 class="text-brand-gold font-bold uppercase text-xs tracking-wider">5. Seus Direitos (LGPD)</h3>
                 <p>Você tem o direito de solicitar: a confirmação da existência de tratamento, acesso aos dados, correção de dados incompletos ou a eliminação de dados desnecessários.</p>
             </div>
 

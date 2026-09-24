@@ -54,6 +54,8 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
       :href="link"
       target="_blank"
       rel="noopener noreferrer"
+      data-track="whatsapp_click"
+      data-track-location="floating_button"
       aria-label="Iniciar Protocolo via WhatsApp"
       class="
         group
@@ -116,7 +118,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll))
           ? 'bg-brand-gold text-slate-950 border-brand-gold shadow-[0_0_15px_rgba(197,160,89,0.4)]' 
           : 'bg-slate-950 text-white border-slate-800'"
       >
-        Start_Chat
+        Falar no WhatsApp
       </span>
     </a>
   </transition>

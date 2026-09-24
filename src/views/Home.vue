@@ -8,6 +8,7 @@ import Footer from '../components/layout/Footer.vue'
 import Hero from '../components/sections/Hero.vue'
 import Services from '../components/sections/Services.vue'
 import Approach from '../components/sections/Approach.vue'
+import Portfolio from '../components/sections/Portfolio.vue'
 import Testimonials from '../components/sections/Testimonials.vue'
 import Contact from '../components/sections/Contact.vue'
 // UI (Se você ainda não tiver esse arquivo, pode comentar por enquanto)
@@ -41,6 +42,8 @@ const handleServiceSelect = (id) => {
       <Services @selectService="handleServiceSelect" />
 
       <Approach v-model="activeMethodology" />
+
+      <Portfolio />
 
       <Testimonials />
 
